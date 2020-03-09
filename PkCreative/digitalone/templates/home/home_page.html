@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--    Favicons-->
+  <!--    =============================================-->
+  <link rel="apple-touch-icon" sizes="57x57" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="60x60" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="72x72" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="76x76" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="114x114" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="120x120" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="144x144" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="152x152" href='{% static "assets/images/logo.png" %}'>
+  <link rel="apple-touch-icon" sizes="180x180" href='{% static "assets/images/logo.png" %}'>
+  <link rel="icon" type="image/png" sizes="192x192" href='{% static "assets/images/logo.png" %}'>
+  <link rel="icon" type="image/png" sizes="32x32" href='{% static "assets/images/logo.png" %}'>
+  <link rel="icon" type="image/png" sizes="96x96" href='{% static "assets/images/logo.png" %}'>
+  <link rel="icon" type="image/png" sizes="16x16" href='{% static "assets/images/logo.png" %}'>
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content='{% static "assets/images/logo.png" %}'>
+
+  <!--    =============================================-->
+  <title>
+    {% block title %}
+    {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+    {% endblock %}
+    {% block title_suffix %}
+    {% with self.get_site.site_name as site_name %}
+    {% if site_name %}- {{ site_name }}{% endif %}
+    {% endwith %}
+    {% endblock %}
+  </title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+    *,
+    *:after,
+    *:before {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background-color: #161616;
+      margin: 0;
+    }
+
+    p,
+    a {
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+
+    .notice {
+      position: absolute;
+      top: 4vw;
+      right: 4vw;
+      color: white;
+      z-index: 1;
+    }
+
+    .notice a {
+      color: white;
+    }
+
+
+    /*slider styles*/
+    .rgbShiftSlider {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      /*mix-blend-mode: hard-light;*/
+      opacity: 0.85;
+      width: 100vw;
+      height: 100%;
+      overflow: hidden;
+      /*transform-origin : 50vw 300vh;*/
+      transform-origin: 50% 50%;
+    }
+
+    canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 0;
+    }
+
+    nav {
+      position: absolute;
+      top: 4vw;
+      left: 4vw;
+      z-index: 1;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 14px;
+    }
+
+  </style>
+
+  <div class="notice">
+    {% if self.related_page %}
+    <a href="{{ self.related_page.url }}" class="btn btn-primary">
+      Kom binnen: PkCreative
+    </a>
+    {% elif self.related_external_url %}
+    <a href="{{ self.related_external_url }}" class="btn btn-primary">
+      Kom binnen: PkCreative
+    </a>
+    {% endif %}
+  </div>
+
+  <!-- slider -->
+  <div id="rbgShiftSlider" class="rgbShiftSlider"></div>
+
+  <!-- slider nav -->
+  <nav>
+    <a href="#" class="scene-nav prev" data-nav="previous">Prev</a>
+    <a href="#" class="scene-nav next" data-nav="next">Next</a>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.7/pixi.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <script src="{% static 'js/rgbShiftSlider.js' %}"></script>
+  <script>
+    // set images
+    var images = [
+      "{% static 'assets/images/web1.jpg' %}",
+      "{% static 'assets/images/web2.jpg' %}",
+      "{% static 'assets/images/web3.jpg' %}",
+      "{% static 'assets/images/web4.jpg' %}",
+      "{% static 'assets/images/web7.jpg' %}",
+    ]
+    // instanciate slider
+    var rbgShiftSlider = new rbgShiftSlider({
+      nav: true,
+      navElement: '.scene-nav',
+      slideImages: images,
+      stageWidth: 1920,
+      stageHeight: 1080,
+
+      displacementImage: '{% static "assets/displace-circle.png" %}',
+      fullScreen: true,
+      transitionDuration: 0.35, // must be 0.1 > transitionGhostDuration
+      transitionGhostDuration: 0.25,
+      transitionFilterIntensity: 350,
+      transitionSpriteIntensity: 2,
+      mouseDispIntensity: 3,
+      interactive: true,
+      autoPlay: true,
+      autoPlaySpeed: 5000,
+    });
+
+  </script>
+</body>
+
+</html>

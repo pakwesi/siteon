@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+
+{% block content %}
+<section class="background-11 pt-4 pt-md-6 pt-lg-8">
+  <div class="container">
+    <div class="row align-items-center overflow-hidden">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <!-- <img src='assets/images/software-banner.jpg'/>--><video class="img-fluid" autoplay loop muted>
+          <source src="{% static 'assets/videos/Codes-23355.mp4' %}" type="video/mp4"></video></div>
+      <div class="col-lg-6 pl-xl-5">
+        <h2 class="mb-3 fw-400">Eenvoudige en complexe webplatformen</h2>
+        <p class="lead font-1 mt-2 mb-5 color-5">PkCreative maakt gebruik van opensource contentmanagementsystemen waarmee zowel eenvoudige kleine websites als omvangrijke webplatformen en mobiele applicaties ontwikkeld en beheerd kunnen worden.</p>
+      </div>
+    </div>
+    <!--/.row-->
+  </div>
+  <!--/.container-->
+</section>
+<section class="font-1">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <h3 class="my-4 fw-400">Wat kunt u doen met uw website/webpplicatie?</h3>
+    </div>
+  </div>
+  <!--/.row-->
+  </div>
+  <!--/.container-->
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-8">
+        <h5 class="fw-400 mb-3">Uw nieuwe website/webapplicatie gaat het verschil maken.</h5>
+        <h3 class="fw-400 mb-4">Publiek eerst</h3>
+        <p class="lead color-5">Laat uw publiek weten wat uw bestaan ​​is in de digitale wereld. Bereik meer klanten buiten uw fysieke locatie om goederen en services te leveren.</p>
+      </div>
+      <div class="col-lg-6 mb-8"><img src="{% static 'assets/images/service-5.jpg' %}"></div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-8 push-lg-6">
+        <h5 class="fw-400 mb-3">Een webbureau dat écht met je meedenkt.</h5>
+        <h3 class="fw-400 mb-4">Dynamic content</h3>
+        <p class="lead color-5">Beheer inhoud vanuit het admin panel en update de website regelmatig. Synchroniseer al uw web-apps met behulp van API. Centrale gegevens, toegang vanaf elk web-app. </p>
+      </div>
+      <div class="col-lg-6 mb-8 pull-lg-6"><img src="{% static 'assets/images/service-1.jpg' %}"></div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-8 mb-lg-0">
+        <h5 class="fw-400 mb-3">Begin je blog</h5>
+        <h3 class="fw-400 mb-4">Micro Site en Software ontwikkeling </h3>
+        <p class="lead color-5">Persoonlijk of zakelijk bloggen is dé manier om gevonden te worden.
+          Weinig pagina's om uw doelgroep te vertellen wat u wilt overbrengen.</p>
+      </div>
+      <div class="col-lg-6"><img src="{% static 'assets/images/service-2.jpg' %}"></div>
+    </div>
+    <!--/.row-->
+  </div>
+  <!--/.container-->
+</section>
+{% for block in page.content %}
+{% include_block block %}
+{% endfor %}
+<section class="background-11 text-center">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-8 pb-5"><img class="mb-4" src="{% static 'assets/images/service-3.jpg' %}" width="352">
+        <h3 class="my-4 fw-400">Interesse om met ons samen te werken?</h3>
+        <p class="lead font-1 mb-0 color-5">
+          Met behulp van het Django-framework geschreven in Python hebben we websites en applicaties van verschillende niches gemaakt.</p>
+      </div>
+    </div>
+    <!--/.row-->
+  </div>
+  <!--/.container-->
+</section>
+<section class="text-center py-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col col-lg-12 py-7 px-5" style="background: #5800C5;"></div>
+              <div class="col col-lg-12 py-7 px-5" style="background: #E13A2B;"></div>
+            </div>
+          </div>
+          <div class="col-md-6 px-5">
+            <div class="background-holder" style="background-image:url(assets/images/software-partner-09.jpg);"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-4 py-5 px-5" style="background: #FAE8D3;">
+        <p class="mt-4 color-3 lead font-1">Verhoog uw bedrijfsprestaties met onze Python gebaseerde weboplossingen.</p>
+        <div class="font-1 mt-4 fw-600">-- PkCreative --</div>
+      </div>
+      <div class="col-lg-4">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col col-lg-12 py-7 px-5">
+                <div class="background-holder" style="background-image:url(assets/images/software-partner-10.jpg);"></div>
+
+              </div>
+              <div class="col col-lg-12 py-7 px-5" style="background: #4A9DEF;"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row h-100">
+              <div class="col col-lg-12 py-7 px-5 background-10"></div>
+              <div class="col col-lg-12 py-7 px-5 background-black"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.row-->
+  </div>
+  <!--/.container-->
+</section>
+
+{% endblock %}

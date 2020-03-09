@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags widget_tweaks %}
+
+{% block content %}
+<section class="font-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <h3 class="text-uppercase fw-300">Contact</h3>
+        <hr class="short left mb-5" align="left">
+        <div class="row">
+          <div class="col-auto" style="min-width: 16px;"><span class="fa fa-map-marker"></span></div>
+          <div class="col">
+            <p class="fw-300"><span class="fw-600">Rotterdam-Eindhoven-Nijmegen</span><br><span class="color-5">Heb je een vraag of wil je vrijblijvend jouw case of uitdaging aan ons voorleggen? Wacht dan niet langer en neem contact met ons
+                op!</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <form action="{% pageurl page %}" method="POST">
+          {% csrf_token %}
+
+          {% if form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+            {% for error in form.non_field_errors %}
+            {{ error }}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% for field in form.visible_fields %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {% render_field field class+="form-control" %}
+          </div>
+          {% endfor %}
+
+          <button type="submit" class="btn btn-outline-dark">Verzenden</button>
+        </form>
+      </div>
+      <div class="col mt-5">
+        <div class="googlemap" data-latlng="48.8583701,2.2922926" data-scrollwheel="false" data-zoom="14" data-theme="SubtleGray" style="min-height: 400px;">
+          <div class="marker-content py-3">
+            <h4>Eiffel Tower</h4>
+            <p>Gustave Eiffel's iconic,<br>wrought-iron 1889 tower.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.row-->
+  </div>
+  <!--/.container-->
+</section>
+
+{% endblock %}
