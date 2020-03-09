@@ -20,6 +20,12 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'y@qo4p7wzm0!3+f*l-b3o&5-2(0+-iln9ynm8w@)lb*@4jujsr'
+
 ALLOWED_HOSTS = ['104.248.83.181',]
 
 
@@ -138,9 +144,9 @@ else:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
+        'NAME': 'mypkcreative',
+        'USER': 'mypkcreativeuser',
+        'PASSWORD': 'headphone',
         'HOST': 'localhost',
         'PORT': '',
     }
