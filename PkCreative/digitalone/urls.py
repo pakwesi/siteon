@@ -11,7 +11,7 @@ from wagtailstreamforms import urls as streamforms_urls
 urlpatterns = [
     url(r'^django-admin/', admin.site.urls),
 
-    url(r'^admin/', include(wagtailadmin_urls)),
+    url(r'^pakwesi/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 
     url(r'^search/$', search_views.search, name='search'),
