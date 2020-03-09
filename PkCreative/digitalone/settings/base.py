@@ -26,7 +26,7 @@ DEBUG = True
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'y@qo4p7wzm0!3+f*l-b3o&5-2(0+-iln9ynm8w@)lb*@4jujsr'
 
-ALLOWED_HOSTS = ['104.248.83.181',]
+ALLOWED_HOSTS = ['104.248.83.181']
 
 
 # Application definition
